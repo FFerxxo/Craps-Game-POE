@@ -50,12 +50,6 @@ public class Game {
         }
     }
 
-    public void newGame() {
-        this.point = 0;
-        this.currentRoll = 0;
-        this.isFirstRoll = true;
-        this.gameOver = false;
-    }
 
     // Getters para mostrar en la vista
     public int getCurrentRoll() {
@@ -78,7 +72,5 @@ public class Game {
         return gameOver;
     }
 
-    public boolean isFirstRoll() {
-        return isFirstRoll;
-    }
+
 }

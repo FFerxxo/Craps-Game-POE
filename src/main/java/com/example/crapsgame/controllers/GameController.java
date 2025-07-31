@@ -55,24 +55,33 @@ public class GameController {
 
     @FXML
     void onActionPlayButton(ActionEvent event) {
-
         Dice dice1 = new Dice();
         Dice dice2 = new Dice();
 
         int rollScore = dice1.roll() + dice2.roll();
 
-        this.diceImageView1.setImage(new Image(getClass().getResourceAsStream(
-                dice1.getDiceImagePath()
-        )));
-        this.diceImageView2.setImage(new Image(getClass().getResourceAsStream(
-                dice2.getDiceImagePath()
-        )));
+        // DEBUG: Imprimir las rutas que está generando
+        String path1 = dice1.getDiceImagePath();
+        String path2 = dice2.getDiceImagePath();
+
+        System.out.println("Intentando cargar imagen 1: " + path1);
+        System.out.println("Intentando cargar imagen 2: " + path2);
+
+        // Verificar si el recurso existe
+        System.out.println("¿Existe recurso 1? " + (getClass().getResourceAsStream(path1) != null));
+        System.out.println("¿Existe recurso 2? " + (getClass().getResourceAsStream(path2) != null));
+
+        // Actualizar imágenes de dados
+        this.diceImageView1.setImage(new Image(getClass().getResourceAsStream(path1)));
+        this.diceImageView2.setImage(new Image(getClass().getResourceAsStream(path2)));
+
         this.rollScoreLabel.setText(String.valueOf(rollScore));
 
+        // Usar el modelo Game para procesar el tiro
         game.playRound(rollScore);
 
+        // Actualizar la vista con los datos del juego
         updateGameDisplay();
-
     }
 
 
