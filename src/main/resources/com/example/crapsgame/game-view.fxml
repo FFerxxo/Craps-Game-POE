@@ -21,7 +21,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <Button mnemonicParsing="false" style="-fx-background-color: black; -fx-border-color: white; -fx-border-radius: 10;" text="?" textFill="WHITE">
+            <Button fx:id="helpButton" mnemonicParsing="false" style="-fx-background-color: black; -fx-border-color: white; -fx-border-radius: 10;" text="?" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -43,7 +43,7 @@
                         <ImageView fx:id="diceImageView2" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </HBox>
-                  <Button mnemonicParsing="false" onAction="#onActionPlayButton" text="JUGAR" />
+                  <Button fx:id="playButton" mnemonicParsing="false" onAction="#onActionPlayButton" text="JUGAR" />
                </children>
             </VBox>
             <VBox alignment="CENTER" style="-fx-border-color: black;" HBox.hgrow="ALWAYS">
@@ -78,7 +78,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                         </Label>
-                        <Label style="-fx-border-color: black;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Label fx:id="pointLabel" style="-fx-border-color: black;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="10.0" />
                            </GridPane.margin>
@@ -108,7 +108,7 @@
                               <Insets right="10.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label style="-fx-border-color: black;" text="0" GridPane.columnIndex="1">
+                        <Label fx:id="gamesWonLabel" style="-fx-border-color: black;" text="0" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets left="10.0" />
                            </GridPane.margin>
@@ -116,7 +116,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
                         </Label>
-                        <Label style="-fx-border-color: black;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Label fx:id="gamesLostLabel" style="-fx-border-color: black;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="10.0" />
                            </GridPane.margin>
