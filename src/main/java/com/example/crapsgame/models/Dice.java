@@ -8,7 +8,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Dice implements Rollable {
 
     /** Carpeta de imágenes: src/main/resources/com/example/crapsgame/images/ */
-    public static final String IMAGES_PATH = "/com/example/crapsgame/images/";
+    public static final String IMAGES_PATH = "/com/example/crapsgame/images/dices";
 
     /** Valor actual del dado (1 – 6). */
     private int value = 1;
