@@ -48,6 +48,16 @@ public class Game {
             }
             // Si no es punto ni 7, continúa
         }
+        if (gameOver) {
+            startNewRound();
+        }
+    }
+    private void startNewRound() {
+        this.point = 0;
+        this.currentRoll = 0;
+        this.isFirstRoll = true;
+        this.gameOver = false;
+        // Los contadores gamesWon y gamesLost se mantienen
     }
 
 
@@ -70,6 +80,10 @@ public class Game {
 
     public boolean isGameOver() {
         return gameOver;
+    }
+
+    public boolean isFirstRoll() {
+        return isFirstRoll;
     }
 
 
