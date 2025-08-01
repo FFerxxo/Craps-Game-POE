@@ -1,5 +1,6 @@
 package com.example.crapsgame.controllers;
 
+import com.example.crapsgame.models.AlertBox;
 import com.example.crapsgame.models.Dice;
 import com.example.crapsgame.models.Game;
 import com.example.crapsgame.models.Player;
@@ -37,11 +38,14 @@ public class GameController {
     @FXML
     private Button playButton;
 
+    private AlertBox alertBox;
+
     private Player player;
     private Game game;
 
     public void initialize() {
         game = new Game();
+        alertBox = new AlertBox();
         updateGameDisplay();
     }
 
@@ -73,6 +77,21 @@ public class GameController {
 
         updateGameDisplay();
 
+        if (game.isFirstRoll() && game.getCurrentRoll() == 0) {
+
+            javafx.animation.Timeline timeline = new javafx.animation.Timeline(
+                    new javafx.animation.KeyFrame(
+                            javafx.util.Duration.seconds(2),
+                            e -> {
+                                this.rollScoreLabel.setText("0");
+                                this.diceImageView1.setImage(null);
+                                this.diceImageView2.setImage(null);
+                            }
+                    )
+            );
+            timeline.play();
+        }
+
     }
 
 
@@ -84,4 +103,30 @@ public class GameController {
     }
 
 
+    @FXML
+    void onActionHelpButton(ActionEvent event) {
+        String title = "AYUDA - Cómo jugar CRAPS";
+        String header = "Reglas del juego de dados CRAPS";
+        String content = """
+            🎲 REGLAS DEL CRAPS:
+            
+            PRIMER TIRO:
+            • Si sacas 7 u 11: ¡GANAS inmediatamente!
+            • Si sacas 2, 3 o 12: ¡PIERDES inmediatamente! (Craps)
+            • Si sacas 4, 5, 6, 8, 9 o 10: Estableces el PUNTO
+            
+            DESPUÉS DEL PUNTO:
+            • Sigue lanzando los dados
+            • Si sacas tu PUNTO otra vez: ¡GANAS!
+            • Si sacas 7: ¡PIERDES! (Seven Out)
+            • Cualquier otro número: Continúa jugando
+            
+            🎯 OBJETIVO:
+            Acumula la mayor cantidad de juegos ganados.
+            
+            ¡Buena suerte!
+            """;
+
+        alertBox.showAlertBox(title, header, content);
+    }
 }

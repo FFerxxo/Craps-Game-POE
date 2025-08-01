@@ -8,7 +8,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Dice implements Rollable {
 
     /** Carpeta de imágenes: src/main/resources/com/example/crapsgame/images/ */
-    public static final String IMAGES_PATH = "/com/example/crapsgame/images/dices";
+    public static final String IMAGES_PATH = "/com/example/crapsgame/images/dices/dice";
 
     /** Valor actual del dado (1 – 6). */
     private int value = 1;
@@ -26,7 +26,7 @@ public class Dice implements Rollable {
 
     /** Ruta PNG correspondiente a la última tirada (dice-1.png … dice-6.png). */
     public String getImagePath() {
-        return IMAGES_PATH + "dice-" + value + ".png";
+        return IMAGES_PATH + value + ".png";
     }
 
     /** Alias para compatibilidad con tu GameController. */

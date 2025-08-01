@@ -14,115 +14,161 @@
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.crapsgame.controllers.GameController">
    <children>
-      <HBox alignment="CENTER" prefHeight="50.0" spacing="10.0" style="-fx-background-color: black;">
+      <!-- ESTUDIANTE 3: Header mejorado con más espacio y mejor fuente -->
+      <HBox alignment="CENTER" prefHeight="60.0" spacing="15.0" style="-fx-background-color: #2c3e50; -fx-padding: 10;">
          <children>
-            <Label text="A JUGAR CRAPS" textFill="WHITE">
+            <Label text="🎲 A JUGAR CRAPS 🎲" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="helpButton" mnemonicParsing="false" style="-fx-background-color: black; -fx-border-color: white; -fx-border-radius: 10;" text="?" textFill="WHITE">
+            <Button fx:id="helpButton" onAction="#onActionHelpButton" mnemonicParsing="false" style="-fx-background-color: #e74c3c; -fx-border-color: white; -fx-border-radius: 15; -fx-background-radius: 15;" text="❓" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="System Bold" size="16.0" />
                </font>
             </Button>
          </children>
       </HBox>
-      <HBox alignment="CENTER" style="-fx-background-color: white;" VBox.vgrow="ALWAYS">
+
+      <HBox alignment="CENTER" style="-fx-background-color: white; -fx-padding: 20;" VBox.vgrow="ALWAYS">
          <children>
-            <VBox alignment="CENTER" style="-fx-border-color: black;" HBox.hgrow="ALWAYS">
+            <!-- ESTUDIANTE 3: Zona de juego con mejor diseño -->
+            <VBox alignment="CENTER" spacing="15.0" style="-fx-border-color: #34495e; -fx-border-width: 2; -fx-background-color: #ecf0f1; -fx-padding: 20;" HBox.hgrow="ALWAYS">
                <children>
-                  <Label text="ZONA DE JUEGO">
+                  <Label text="🎲 ZONA DE JUEGO 🎲">
                      <font>
-                        <Font name="System Bold" size="12.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                      <children>
-                        <ImageView fx:id="diceImageView1" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
-                        <ImageView fx:id="diceImageView2" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="diceImageView1" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 2, 2);" />
+                        <ImageView fx:id="diceImageView2" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 2, 2);" />
                      </children>
                   </HBox>
-                  <Button fx:id="playButton" mnemonicParsing="false" onAction="#onActionPlayButton" text="JUGAR" />
+                  <Button fx:id="playButton" mnemonicParsing="false" onAction="#onActionPlayButton" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10 20; -fx-background-radius: 10;" text="🎲 JUGAR 🎲">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
                </children>
             </VBox>
-            <VBox alignment="CENTER" style="-fx-border-color: black;" HBox.hgrow="ALWAYS">
+
+            <!-- ESTUDIANTE 3: Panel de resultados mejorado -->
+            <VBox alignment="CENTER" spacing="15.0" style="-fx-border-color: #34495e; -fx-border-width: 2; -fx-background-color: #f8f9fa; -fx-padding: 20;" HBox.hgrow="ALWAYS">
                <children>
-                  <Label fx:id="nicknameLabel" text="Nickname" />
-                  <Label text="RESULTADOS" />
-                  <GridPane style="-fx-border-color: black;">
-                    <columnConstraints>
-                      <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
+                  <Label fx:id="nicknameLabel" text="Jugador" textFill="#2c3e50">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+
+                  <Label text="📊 RESULTADOS 📊" textFill="#2c3e50">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+
+                  <!-- ESTUDIANTE 3: Grid de tiro y punto con mejor diseño -->
+                  <GridPane style="-fx-border-color: #bdc3c7; -fx-border-width: 1; -fx-background-color: white; -fx-padding: 10;">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
                      <children>
-                        <Label text="TIRO">
+                        <Label text="🎯 TIRO:" textFill="#3498db">
                            <GridPane.margin>
                               <Insets right="10.0" />
                            </GridPane.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
                         </Label>
-                        <Label text="PUNTO" GridPane.rowIndex="1">
+                        <Label text="🎲 PUNTO:" GridPane.rowIndex="1" textFill="#9b59b6">
                            <GridPane.margin>
                               <Insets right="10.0" />
                            </GridPane.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
                         </Label>
-                        <Label fx:id="rollScoreLabel" style="-fx-border-color: black;" text="0" GridPane.columnIndex="1">
+                        <Label fx:id="rollScoreLabel" style="-fx-border-color: #3498db; -fx-border-width: 2; -fx-background-color: #ebf3fd; -fx-alignment: center;" text="0" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets left="10.0" />
                            </GridPane.margin>
                            <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                            </padding>
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
                         </Label>
-                        <Label fx:id="pointLabel" style="-fx-border-color: black;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Label fx:id="pointLabel" style="-fx-border-color: #9b59b6; -fx-border-width: 2; -fx-background-color: #f4ecf7; -fx-alignment: center;" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <GridPane.margin>
                               <Insets left="10.0" />
                            </GridPane.margin>
                            <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                            </padding>
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
                         </Label>
                      </children>
                   </GridPane>
-                  <GridPane>
-                    <columnConstraints>
-                      <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
+
+                  <!-- ESTUDIANTE 3: Grid de estadísticas con colores verde/rojo -->
+                  <GridPane style="-fx-border-color: #bdc3c7; -fx-border-width: 1; -fx-background-color: white; -fx-padding: 10;">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
                      <children>
-                        <Label text="JUEGOS GANADOS">
+                        <Label text="✅ GANADOS:" textFill="#27ae60">
                            <GridPane.margin>
                               <Insets right="10.0" />
                            </GridPane.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
                         </Label>
-                        <Label text="JUEGOS PERDIDOS" GridPane.rowIndex="1">
+                        <Label text="❌ PERDIDOS:" GridPane.rowIndex="1" textFill="#e74c3c">
                            <GridPane.margin>
                               <Insets right="10.0" />
                            </GridPane.margin>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
                         </Label>
-                        <Label fx:id="gamesWonLabel" style="-fx-border-color: black;" text="0" GridPane.columnIndex="1">
+                        <Label fx:id="gamesWonLabel" style="-fx-border-color: #27ae60; -fx-border-width: 2; -fx-background-color: #e8f5e8; -fx-alignment: center;" text="0" GridPane.columnIndex="1" textFill="#27ae60">
                            <GridPane.margin>
                               <Insets left="10.0" />
                            </GridPane.margin>
                            <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                            </padding>
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
                         </Label>
-                        <Label fx:id="gamesLostLabel" style="-fx-border-color: black;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Label fx:id="gamesLostLabel" style="-fx-border-color: #e74c3c; -fx-border-width: 2; -fx-background-color: #fdeaea; -fx-alignment: center;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" textFill="#e74c3c">
                            <GridPane.margin>
                               <Insets left="10.0" />
                            </GridPane.margin>
                            <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                            </padding>
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
                         </Label>
                      </children>
                   </GridPane>

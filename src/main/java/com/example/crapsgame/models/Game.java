@@ -48,14 +48,18 @@ public class Game {
             }
             // Si no es punto ni 7, continúa
         }
+        if (gameOver) {
+            startNewRound();
+        }
     }
-
-    public void newGame() {
+    private void startNewRound() {
         this.point = 0;
         this.currentRoll = 0;
         this.isFirstRoll = true;
         this.gameOver = false;
+        // Los contadores gamesWon y gamesLost se mantienen
     }
+
 
     // Getters para mostrar en la vista
     public int getCurrentRoll() {
@@ -81,4 +85,6 @@ public class Game {
     public boolean isFirstRoll() {
         return isFirstRoll;
     }
+
+
 }
